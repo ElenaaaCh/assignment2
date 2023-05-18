@@ -9,7 +9,10 @@ public class IntegerToRoman {
     
     public static String convert(int number){
         String romanNumber="";
-            while(number>0){
+        if(number<1){
+            throw new IllegalArgumentException("Number is smaller than 1");
+        }else{
+            while(number>=1){
                 if(number==1000){
                     romanNumber+="M";
                     number=0;
@@ -70,9 +73,11 @@ public class IntegerToRoman {
                         romanNumber+="I";           
                     } 
                 }
-               
+                if(number>1000){
+                    throw new IllegalArgumentException("Number is bigger than 1000");
+                }
             }
-        
+        }
     return romanNumber;
     }
 }

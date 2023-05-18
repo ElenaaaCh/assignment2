@@ -122,4 +122,22 @@ public class IntegerToRomanTest {
         assertEquals(expectedRoman, actualRoman);
     }
 
+    @Test(expected = java.lang.IllegalArgumentException.class)
+    public void testConvertNumberMajorOneThousandtoRoman(){    
+        int number = 1001;
+        IntegerToRoman.convert(number);
+    }
+
+    @Test(expected = java.lang.IllegalArgumentException.class)
+    public void testConvertNumberMinorOnetoRoman(){
+        int number = 0;
+        IntegerToRoman.convert(number);
+    }
+       
+    @Test(expected = java.lang.NumberFormatException.class)
+    public void testConvertStringtoRoman(){
+        IntegerToRoman.convert(Integer.parseInt("em"));
+    }
+
+
 }
